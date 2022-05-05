@@ -41,9 +41,12 @@ class NavBar extends Component {
           </>})}
           
         </NavDropdown>
-        <Nav.Link href="#" disabled>
-          Link
-        </Nav.Link>
+        <NavDropdown title="Admin" id="navbarScrollingDropdown">
+          <NavDropdown.Item href="admin/addGame">Add Game</NavDropdown.Item>
+          <NavDropdown.Item href="admin/addGame">Add Game</NavDropdown.Item>
+          <NavDropdown.Item href="admin/addGame">Add Game</NavDropdown.Item>
+          <NavDropdown.Item href="admin/addGame">Add Game</NavDropdown.Item>
+        </NavDropdown>
       </Nav>
       <Form className="d-flex">
         <FormControl
