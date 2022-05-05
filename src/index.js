@@ -4,6 +4,8 @@ import { BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import './index.css';
 import AddCategory from './pages/admin/AddCategory';
 import AddGame from './pages/admin/AddGame';
+import AddUser from './pages/admin/AddUser';
+import AddPlatform from './pages/admin/AddPlatform';
 import Home from './pages/Home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -14,7 +16,9 @@ root.render(
        <Routes>
         <Route path="/" exact element={<Home />}  />    
         <Route path="/addGame" exact element={<AddGame />}  />
-        <Route path="/addCategory" exact element={<AddCategory />}  />          
+        <Route path="/addCategory" exact element={<AddCategory />}  /> 
+        <Route path="/addUser" exact element={<AddUser />}  />
+        <Route path="/addPlatform" exact element={<AddPlatform />}  />          
       </Routes>
     </Router>
   </React.StrictMode>

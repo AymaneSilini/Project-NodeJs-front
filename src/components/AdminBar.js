@@ -11,8 +11,8 @@ const AdminBar = () => {
       <NavDropdown title="Admin" id="navbarScrollingDropdown">
           <NavDropdown.Item href="/addGame">Add Game</NavDropdown.Item>
           <NavDropdown.Item href="/addCategory">Add Category</NavDropdown.Item>
-          <NavDropdown.Item href="/addGame">Add Game</NavDropdown.Item>
-          <NavDropdown.Item href="/addGame">Add Game</NavDropdown.Item>
+          <NavDropdown.Item href="/addUser">Add User</NavDropdown.Item>
+          <NavDropdown.Item href="/addPlatform">Add Plaform</NavDropdown.Item>
         </NavDropdown>
     </Container>
   </Navbar>

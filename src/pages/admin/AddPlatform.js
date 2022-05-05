@@ -3,7 +3,7 @@ import React from 'react'
 import { Form, Button } from 'react-bootstrap';
 import AdminBar from '../../components/AdminBar';
  
-class AddCategory extends React.Component {
+class AddPlatform extends React.Component {
   
   constructor(props) {
     super(props);
@@ -16,9 +16,9 @@ class AddCategory extends React.Component {
  
   handleSubmit = (event) => {
     console.log(this.state);
-    alert('A category was added: ' + JSON.stringify(this.state));
+    alert('A platform was added: ' + JSON.stringify(this.state));
  
-    fetch('http://localhost:3001/category/', {
+    fetch('http://localhost:3001/platform/', {
         method: "POST",
         headers: {
             'Content-type': 'application/json'
@@ -54,4 +54,4 @@ class AddCategory extends React.Component {
   }
 }
  
-export default AddCategory;
+export default AddPlatform;

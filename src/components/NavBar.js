@@ -42,10 +42,10 @@ class NavBar extends Component {
           
         </NavDropdown>
         <NavDropdown title="Admin" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="admin/addGame">Add Game</NavDropdown.Item>
-          <NavDropdown.Item href="admin/addGame">Add Game</NavDropdown.Item>
-          <NavDropdown.Item href="admin/addGame">Add Game</NavDropdown.Item>
-          <NavDropdown.Item href="admin/addGame">Add Game</NavDropdown.Item>
+          <NavDropdown.Item href="/addGame">Add Game</NavDropdown.Item>
+          <NavDropdown.Item href="/addCategory">Add Category</NavDropdown.Item>
+          <NavDropdown.Item href="/addUser">Add User</NavDropdown.Item>
+          <NavDropdown.Item href="/addPlatform">Add Game</NavDropdown.Item>
         </NavDropdown>
       </Nav>
       <Form className="d-flex">
