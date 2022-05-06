@@ -1,3 +1,4 @@
+import { Title } from '@mui/icons-material';
 import { Container } from '@mui/material';
 import React from 'react'
 import { Form, Button } from 'react-bootstrap';
@@ -39,6 +40,8 @@ class AddGame extends React.Component {
 <AdminBar/>
 <br></br>
         <Container maxWidth="sm" padding="normal">
+      <h1>Form to add a game</h1>
+      <br></br>
         <Form onSubmit={this.handleSubmit}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Name</Form.Label>
@@ -64,8 +67,29 @@ class AddGame extends React.Component {
     <Form.Label>Price</Form.Label>
     <Form.Control type="number" value={this.state.value} name="price" onChange={this.handleChange}/>
   </Form.Group>
+
+  <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label>Category</Form.Label>
+    <Form.Control type="number" value={this.state.value} name="category" onChange={this.handleChange}/>
+  </Form.Group>
+
+  <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label>Platform</Form.Label>
+    <Form.Control type="number" value={this.state.value} name="platform" onChange={this.handleChange}/>
+  </Form.Group>
+
+  <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label>Requirements</Form.Label>
+    <Form.Control type="number" value={this.state.value} name="requirements" onChange={this.handleChange}/>
+  </Form.Group>
+
+  <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label>Discount</Form.Label>
+    <Form.Control type="number" value={this.state.value} name="discount" onChange={this.handleChange}/>
+  </Form.Group>
+
   <Button variant="primary" type="submit" value="Submit">
-    Save
+    Add
   </Button>
 </Form>
 </Container>

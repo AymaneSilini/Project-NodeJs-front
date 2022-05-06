@@ -31,8 +31,11 @@ class NavBar extends Component {
         style={{ maxHeight: '100px' }}
         navbarScroll
       >
-        <Nav.Link href="/">Home</Nav.Link>
+        <Nav.Link href="/home">Home</Nav.Link>
         <Nav.Link href="#action2">Link</Nav.Link>
+        <Nav.Link href="/signup">Sign up</Nav.Link>
+
+
         <NavDropdown title="Categories" id="navbarScrollingDropdown">
         {this.state.categories.map((category)=>{
           var link = "/category/"+category.name;
@@ -47,6 +50,8 @@ class NavBar extends Component {
           <NavDropdown.Item href="/addCategory">Add Category</NavDropdown.Item>
           <NavDropdown.Item href="/addUser">Add User</NavDropdown.Item>
           <NavDropdown.Item href="/addPlatform">Add Game</NavDropdown.Item>
+          <NavDropdown.Item href="/getUser">Get User</NavDropdown.Item>
+
         </NavDropdown>
       </Nav>
       <Form className="d-flex">

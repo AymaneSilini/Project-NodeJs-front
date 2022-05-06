@@ -38,7 +38,10 @@ class AddPlatform extends React.Component {
 <>
 <AdminBar/>
 <br></br>
+
         <Container maxWidth="sm" padding="normal">
+        <h1>Form to add a category</h1>
+      <br></br>
         <Form onSubmit={this.handleSubmit}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Name</Form.Label>

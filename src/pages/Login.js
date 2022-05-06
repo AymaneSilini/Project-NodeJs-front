@@ -7,7 +7,7 @@ import { Form, Button } from 'react-bootstrap';
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = {alias:'', mail:'', password: ''};
+        this.state = {mail:'', password: ''};
       }
     
       handleChange = (event) => {
@@ -15,8 +15,7 @@ class Login extends Component {
       }
      
       handleSubmit = (event) => {
-        console.log(this.state);
-        
+       
         fetch('http://localhost:3001/user/login',{
           method: "POST",
         headers: {
@@ -24,10 +23,12 @@ class Login extends Component {
         },
         body: JSON.stringify(this.state)
         })
-        .then((response) => response.json())
+        .then((response) => response.json(),
+        )
         .then((result) => {
-          console.log(result)
-          alert('A user was added: ' + JSON.stringify(this.state));
+          alert('Welcome ' + result.alias);
+          sessionStorage.setItem("token", result.token);
+          //retrieve and stock the token, then use it for securised routes
         })
      
         event.preventDefault();
@@ -40,16 +41,13 @@ class Login extends Component {
     <br></br>
             <Container maxWidth="sm" padding="normal">
             <Form onSubmit={this.handleSubmit}>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>User Name</Form.Label>
-        <Form.Control type="text" value={this.state.value} name="alias" onChange={this.handleChange}/>
-      </Form.Group>
+
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email</Form.Label>
         <Form.Control type="email" value={this.state.value} name="mail" onChange={this.handleChange}/>
       </Form.Group>
     
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" value={this.state.value} name="password" onChange={this.handleChange}/>
       </Form.Group>
