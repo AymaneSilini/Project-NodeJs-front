@@ -13,6 +13,8 @@ const AdminBar = () => {
           <NavDropdown.Item href="/addCategory">Add Category</NavDropdown.Item>
           <NavDropdown.Item href="/addUser">Add User</NavDropdown.Item>
           <NavDropdown.Item href="/addPlatform">Add Plaform</NavDropdown.Item>
+          <NavDropdown.Item href="/getUser">Get User</NavDropdown.Item>
+
         </NavDropdown>
     </Container>
   </Navbar>

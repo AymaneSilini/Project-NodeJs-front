@@ -9,6 +9,8 @@ import AddPlatform from './pages/admin/AddPlatform';
 import Home from './pages/Home';
 import Category from './pages/Category';
 import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import GetUser from './pages/admin/GetUser';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,13 +18,18 @@ root.render(
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossOrigin="anonymous"/>
     <Router>
        <Routes>
-        <Route path="/" exact element={<Home />}  />
-        <Route path="/login" exact element={<Login />}  />    
+        <Route path="/home" exact element={<Home />}  />
+        <Route path="/" exact element={<Login/>}  />    
+        <Route path="/signup" exact element={<SignUp/>}  />    
         <Route path="/category/:category" exact element={<Category />}  />    
         <Route path="/addGame" exact element={<AddGame />}  />
         <Route path="/addCategory" exact element={<AddCategory />}  /> 
         <Route path="/addUser" exact element={<AddUser />}  />
-        <Route path="/addPlatform" exact element={<AddPlatform />}  />          
+        <Route path="/addPlatform" exact element={<AddPlatform />}  />  
+        <Route path="/getUser" exact element={<GetUser />}  />   
+
+
+        
       </Routes>
     </Router>
   </React.StrictMode>

@@ -20,7 +20,7 @@ class AddGame extends React.Component {
     fetch('http://localhost:3001/user/register',{
       method: "POST",
     headers: {
-        'Content-type': 'application/json'
+        'Content-type': 'application/json',
     },
     body: JSON.stringify(this.state)
     })
@@ -28,6 +28,9 @@ class AddGame extends React.Component {
     .then((result) => {
       console.log(result)
       alert('A user was added: ' + JSON.stringify(this.state));
+      sessionStorage.setItem("token", result.token);
+      //retrieve and stock the token, then use it for securised routes
+      console.log(sessionStorage.getItem("token"));
     })
  
     event.preventDefault();

@@ -1,4 +1,5 @@
 import { Container, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { Container } from '@mui/material';
 import React from 'react'
 import { Form, Button } from 'react-bootstrap';
 import AdminBar from '../../components/AdminBar';
@@ -59,6 +60,8 @@ class AddGame extends React.Component {
 <AdminBar/>
 <br></br>
         <Container maxWidth="sm" padding="normal">
+      <h1>Form to add a game</h1>
+      <br></br>
         <Form onSubmit={this.handleSubmit}>
   <Form.Group className="mb-3">
     <Form.Label>Name</Form.Label>
@@ -124,7 +127,7 @@ class AddGame extends React.Component {
 </Form.Group>
 
   <Button variant="primary" type="submit" value="Submit">
-    Save
+    Add
   </Button>
 </Form>
 </Container>
