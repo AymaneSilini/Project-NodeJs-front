@@ -8,6 +8,7 @@ import AddUser from './pages/admin/AddUser';
 import AddPlatform from './pages/admin/AddPlatform';
 import Home from './pages/Home';
 import Category from './pages/Category';
+import Login from './pages/Login';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +17,7 @@ root.render(
     <Router>
        <Routes>
         <Route path="/" exact element={<Home />}  />
+        <Route path="/login" exact element={<Login />}  />    
         <Route path="/category/:category" exact element={<Category />}  />    
         <Route path="/addGame" exact element={<AddGame />}  />
         <Route path="/addCategory" exact element={<AddCategory />}  /> 
