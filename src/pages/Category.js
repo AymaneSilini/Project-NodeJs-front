@@ -4,14 +4,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, Col, Row } from 'react-bootstrap';
 import { Box } from '@mui/material';
 
-class Home extends Component {
+class Category extends Component {
   constructor(props)
   {
     super(props);
-    this.state ={games: []};
+    this.state ={games: [], categoryName: ''};
    }
    componentDidMount() {
-    fetch('http://localhost:3001/game/')
+    var url = window.location.href;
+    url = url.split('/');
+    url = 'http://localhost:3001/game/'+url[url.length-2]+'/'+url[url.length-1];
+    fetch(url)
             .then(res => {
                 return res.json()
              })
@@ -29,14 +32,31 @@ class Home extends Component {
       <Box style={{ marginLeft: '50px', marginRight: '50px' }}>
         <Row>
         {this.state.games.map((game)=>{
+          fetch('http://localhost:3001/category/'+game.category)
+          .then(res => {
+              return res.json()
+           })
+          .then(category => { 
+            console.log(category.name);
+           })
+
+           fetch('http://localhost:3001/platform/'+game.platform)
+          .then(res => {
+              return res.json()
+           })
+          .then(platform => { 
+            console.log(platform.name);
+           })
+
           return<>
           <Col>
           <Card style={{ width: '15rem'}} >
           <Card.Img variant="top" src={game.photo} />
           <Card.Body>
             <Card.Title>{game.name}</Card.Title>
-            <Card.Text>{game.platform}</Card.Text>
-            <Card.Text>{game.developer}</Card.Text>
+            <Card.Text>Category: {game.category}</Card.Text>
+            <Card.Text>Platform: {game.platform}</Card.Text>
+            <Card.Text>Developer: {game.developer}</Card.Text>
             <Button variant="primary">$ {game.price}</Button>
           </Card.Body>
         </Card><br></br></Col></>
@@ -48,4 +68,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Category;

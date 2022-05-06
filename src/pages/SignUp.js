@@ -1,7 +1,7 @@
 import { Container } from '@mui/material';
 import React from 'react'
 import { Form, Button } from 'react-bootstrap';
-import AdminBar from '../../components/AdminBar';
+import NavBar from '../components/NavBar';
  
 class AddGame extends React.Component {
     
@@ -36,7 +36,7 @@ class AddGame extends React.Component {
   render() {
     return (
 <>
-<AdminBar/>
+<NavBar/>
 <br></br>
         <Container maxWidth="sm" padding="normal">
         <Form onSubmit={this.handleSubmit}>

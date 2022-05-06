@@ -14,7 +14,7 @@ class NavBar extends Component {
                 return res.json()
              })
             .then(categories => { 
-                console.log(categories); 
+                //console.log(categories); 
                 this.setState({ categories })
              });
          }
@@ -23,7 +23,7 @@ class NavBar extends Component {
     <Box sx={{ flexGrow: 1 }}>
       <Navbar bg="light" expand="lg">
   <Container fluid>
-    <Navbar.Brand href="#">Stim - Game Shop</Navbar.Brand>
+    <Navbar.Brand href="/">Stim - Game Shop</Navbar.Brand>
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
       <Nav
@@ -31,12 +31,13 @@ class NavBar extends Component {
         style={{ maxHeight: '100px' }}
         navbarScroll
       >
-        <Nav.Link href="#action1">Home</Nav.Link>
+        <Nav.Link href="/">Home</Nav.Link>
         <Nav.Link href="#action2">Link</Nav.Link>
         <NavDropdown title="Categories" id="navbarScrollingDropdown">
         {this.state.categories.map((category)=>{
+          var link = "/category/"+category.name;
           return<>
-          <NavDropdown.Item href="#action3">{category.name}</NavDropdown.Item>
+          <NavDropdown.Item href={link}>{category.name}</NavDropdown.Item>
           <NavDropdown.Divider />
           </>})}
           
