@@ -1,30 +1,68 @@
 import React, { Component } from 'react'
 import NavBar from "../components/NavBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, Button, Col, Row } from 'react-bootstrap';
+import { Card, Button, Col, Row, Form, FormControl} from 'react-bootstrap';
 import { Box } from '@mui/material';
+import { Container } from '@mui/material';
 
 class Home extends Component {
-  constructor(props)
-  {
+  constructor(props){
     super(props);
-    this.state ={games: []};
+    this.state ={games: [], search:'', showButton:false
+  };
    }
-   componentDidMount() {
-    fetch('http://localhost:3001/game/')
+
+   handleChange = (event) => {
+    this.setState({[event.target.name]: event.target.value});
+    }
+   
+  handleSubmit = (event) => {
+  var url = 'http://localhost:3001/game/name/'+ this.state.search
+  fetch(url)
+  .then((response) => response.json())
+  .then(games => { 
+    console.log(games); 
+    this.setState({ games })
+    this.state.showButton = true;
+  }) 
+ 
+  event.preventDefault();
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/game')
             .then(res => {
                 return res.json()
-             })
+              })
             .then(games => { 
                 console.log(games); 
                 this.setState({ games })
-             });
-         }
+              });
+          }
+
 
   render(){
   return (
     <>
       <NavBar/>
+      <br></br>
+      <Container maxWidth="sm" padding="normal">
+      <Form className="d-flex" onSubmit={this.handleSubmit}>
+        <FormControl
+          type="search"
+          placeholder="Search"
+          className="me-2"
+          aria-label="Search"
+          value={this.state.search}
+          onChange={this.handleChange}
+          name="search"
+        />
+        <Button variant="outline-success" type="submit" value="Submit">Search</Button>
+        <Button variant="outline-danger" type="submit" style={{visibility: this.state.showButton ? 'visible' : 'hidden' }} value="Submit" href='/home'>Reset search</Button>
+
+
+        </Form>
+      </Container>
       <br></br>
       <Box style={{ marginLeft: '50px', marginRight: '50px' }}>
         <Row>
