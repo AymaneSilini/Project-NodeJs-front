@@ -1,14 +1,22 @@
-import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Container, Nav, NavDropdown, Form, Button } from 'react-bootstrap';
 import Box from '@mui/material/Box';
 import React, {Component} from 'react'
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 class NavBar extends Component {
   constructor(props)
   {
     super(props);
     this.state ={categories: []};
+    
    }
    componentDidMount() {
+     var loged='';
+     loged = localStorage.getItem('loged');
+     if(loged===null||loged===undefined||loged===''){
+       loged=false
+     }
     fetch('http://localhost:3001/category/')
             .then(res => {
                 return res.json()
@@ -17,9 +25,14 @@ class NavBar extends Component {
                 //console.log(categories); 
                 this.setState({ categories })
              });
-         }
-         render(){
-          return (
+  }
+
+  logout(){
+    alert('Logout')
+  }
+
+render(){
+  return (
     <Box sx={{ flexGrow: 1 }}>
       <Navbar bg="light" expand="lg">
   <Container fluid>
@@ -40,8 +53,7 @@ class NavBar extends Component {
         {this.state.categories.map((category)=>{
           var link = "/category/"+category.name;
           return<>
-          <NavDropdown.Item href={link}>{category.name}</NavDropdown.Item>
-          <NavDropdown.Divider />
+          <NavDropdown.Item href={link} className="text-capitalize">{category.name}</NavDropdown.Item>
           </>})}
           
         </NavDropdown>
@@ -54,15 +66,25 @@ class NavBar extends Component {
 
         </NavDropdown>
       </Nav>
-      <Form className="d-flex">
-        <FormControl
-          type="search"
-          placeholder="Search"
-          className="me-2"
-          aria-label="Search"
-        />
-        <Button variant="outline-success">Search</Button>
+      <Form className="d-flex" >
+        {this.loged ? 
+        <>
+          <Button variant="success" href="/login" style={{marginRight: "20px"}}>Login</Button>
+          <Button variant="primary" href="/signup">SignUp</Button>
+        </>
+        : 
+        <>
+          <IconButton style={{marginRight: "20px"}} color="primary" aria-label="shopping cart">
+            <ShoppingCartIcon />
+          </IconButton>
+          <Button size="small" href="/profile" style={{marginRight: "20px"}}>My Profile</Button>
+          <Button size="small" href="/logout">LogOut</Button>
+
+        </>
+        
+      }
       </Form>
+      
     </Navbar.Collapse>
   </Container>
 </Navbar>
