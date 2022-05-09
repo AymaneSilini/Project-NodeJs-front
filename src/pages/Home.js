@@ -29,7 +29,7 @@ class Home extends Component {
       <Box style={{ marginLeft: '50px', marginRight: '50px' }}>
         <Row>
         {this.state.games.map((game)=>{
-          if(sessionStorage.getItem("role")==="user"){        
+          if(sessionStorage.getItem("token")===null || sessionStorage.getItem("role")==="user"){        
           return<>
           <Col>
           <Card style={{ width: '15rem'}} >
@@ -38,7 +38,8 @@ class Home extends Component {
             <Card.Title>{game.name}</Card.Title>
             <Card.Text>{game.platform}</Card.Text>
             <Card.Text>{game.developer}</Card.Text>
-            <Card.Text>{game.price}</Card.Text>
+            <Card.Text>$ {game.price}</Card.Text>
+            <Button variant="primary">Add to cart</Button>
           </Card.Body>
         </Card><br></br></Col></>
    } 
@@ -52,7 +53,7 @@ class Home extends Component {
       <Card.Title>{game.name}</Card.Title>
       <Card.Text>{game.platform}</Card.Text>
       <Card.Text>{game.developer}</Card.Text>
-      <Card.Text>{game.price}</Card.Text>
+      <Card.Text>$ {game.price}</Card.Text>
       <Button variant="primary"href={link}>Update</Button>
     </Card.Body>
   </Card><br></br></Col></>

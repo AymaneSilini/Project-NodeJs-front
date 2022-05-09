@@ -1,6 +1,7 @@
 import { Container, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import React from 'react'
 import { Form, Button } from 'react-bootstrap';
+import AdminBar from '../../components/AdminBar';
  
 class UpdateGame extends React.Component {
     
@@ -21,7 +22,7 @@ class UpdateGame extends React.Component {
             .then(game => { 
                 //console.log(platforms); 
                 this.setState({ game })
-                console.log(game.synopsis);
+                //console.log(game.synopsis);
              });
 
     fetch('http://localhost:3001/platform/')
@@ -73,6 +74,7 @@ class UpdateGame extends React.Component {
   render() {
     return (
 <>
+<AdminBar/>
 <br></br>
         <Container maxWidth="sm" padding="normal">
       <h1>Form to add a game</h1>
@@ -80,27 +82,27 @@ class UpdateGame extends React.Component {
         <Form onSubmit={this.handleSubmit}>
   <Form.Group className="mb-3">
     <Form.Label>Name</Form.Label>
-    <Form.Control type="text" value={this.state.game.name} name="name" onChange={this.handleChange}/>
+    <Form.Control type="text" defaultValue={this.state.game.name} name="name" onChange={this.handleChange}/>
   </Form.Group>
   <Form.Group className="mb-3">
     <Form.Label>Photo</Form.Label>
-    <Form.Control type="text" value={this.state.game.photo} name="photo" onChange={this.handleChange}/>
+    <Form.Control type="text" defaultValue={this.state.game.photo} name="photo" onChange={this.handleChange}/>
   </Form.Group>
   <Form.Group className="mb-3">
     <Form.Label>Video</Form.Label>
-    <Form.Control type="text" value={this.state.game.video} name="video" onChange={this.handleChange}/>
+    <Form.Control type="text" defaultValue={this.state.game.video} name="video" onChange={this.handleChange}/>
   </Form.Group>
   <Form.Group className="mb-3">
     <Form.Label>Synopsis</Form.Label>
-    <Form.Control type="text" value={this.state.game.synopsis} name="synopsis" onChange={this.handleChange}/>
+    <Form.Control type="text" defaultValue={this.state.game.synopsis} name="synopsis" onChange={this.handleChange}/>
   </Form.Group>
   <Form.Group className="mb-3">
     <Form.Label>Developer</Form.Label>
-    <Form.Control type="text" value={this.state.game.developer} name="developer" onChange={this.handleChange}/>
+    <Form.Control type="text" defaultValue={this.state.game.developer} name="developer" onChange={this.handleChange}/>
   </Form.Group>
   <Form.Group className="mb-3">
     <Form.Label>Price</Form.Label>
-    <Form.Control type="number" value={this.state.game.price} name="price" onChange={this.handleChange}/>
+    <Form.Control type="number" defaultValue={this.state.game.price} name="price" onChange={this.handleChange}/>
   </Form.Group>
 
   <Form.Group className="mb-3">
@@ -110,7 +112,7 @@ class UpdateGame extends React.Component {
     labelId="demo-simple-select-label"
     id="demo-simple-select"
     name='category'
-    value={this.state.game.category}
+    value={this.state.value}
     label="Category"
     onChange={this.handleChange}
   >
@@ -129,7 +131,7 @@ class UpdateGame extends React.Component {
     labelId="demo-simple-select-label"
     id="demo-simple-select"
     name='platform'
-    value={this.state.game.platform}
+    value={this.state.value}
     label="Platform"
     onChange={this.handleChange}
   >
@@ -141,7 +143,7 @@ class UpdateGame extends React.Component {
 </FormControl>
 </Form.Group>
 
-  <Button variant="primary" type="submit" value="Submit">
+  <Button variant="primary" type="submit" defaultValue="Submit">
     Update
   </Button>
 </Form>

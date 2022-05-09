@@ -5,7 +5,8 @@ import { Container, Grid,Button } from '@mui/material';
 
 class LogOut extends Component {
     logout(){
-      sessionStorage.clear();
+      sessionStorage.removeItem("role");
+      sessionStorage.removeItem("token");
       window.location.href = '/';
     }
 

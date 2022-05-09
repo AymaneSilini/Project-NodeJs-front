@@ -30,6 +30,7 @@ class Login extends Component {
           sessionStorage.setItem("role",result.role);
           sessionStorage.setItem("token", result.token);
           console.log(sessionStorage.getItem("role"));
+          window.location.href = '/';
 
           //retrieve and stock the token, then use it for securised routes
         })

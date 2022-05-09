@@ -12,7 +12,7 @@ import Login from './pages/Login';
 import LogOut from './pages/LogOut';
 import SignUp from './pages/SignUp';
 import GetUser from './pages/admin/GetUser';
-import UpdateGame from './pages/UpdateGame';
+import UpdateGame from './pages/admin/UpdateGame';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

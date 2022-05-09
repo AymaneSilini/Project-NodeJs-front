@@ -5,7 +5,7 @@ const AdminBar = () => {
   return (
     <Navbar bg="dark" variant="dark">
     <Container>
-      <Navbar.Brand href="/admin">
+      <Navbar.Brand href="/">
           Admin
       </Navbar.Brand>
       <NavDropdown title="Admin" id="navbarScrollingDropdown">
