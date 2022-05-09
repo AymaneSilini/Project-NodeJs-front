@@ -67,22 +67,13 @@ render(){
         </NavDropdown>
       </Nav>
       <Form className="d-flex" >
-        {this.loged ? 
-        <>
           <Button variant="success" href="/login" style={{marginRight: "20px"}}>Login</Button>
           <Button variant="primary" href="/signup">SignUp</Button>
-        </>
-        : 
-        <>
           <IconButton style={{marginRight: "20px"}} color="primary" aria-label="shopping cart">
             <ShoppingCartIcon />
           </IconButton>
           <Button size="small" href="/profile" style={{marginRight: "20px"}}>My Profile</Button>
           <Button size="small" href="/logout">LogOut</Button>
-
-        </>
-        
-      }
       </Form>
       
     </Navbar.Collapse>

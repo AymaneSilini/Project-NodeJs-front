@@ -9,6 +9,7 @@ import AddPlatform from './pages/admin/AddPlatform';
 import Home from './pages/Home';
 import Category from './pages/Category';
 import Login from './pages/Login';
+import LogOut from './pages/LogOut';
 import SignUp from './pages/SignUp';
 import GetUser from './pages/admin/GetUser';
 
@@ -20,7 +21,8 @@ root.render(
        <Routes>
        <Route path="/" exact element={<Home />}  />
         <Route path="/home" exact element={<Home />}  />
-        <Route path="/login" exact element={<Login/>}  />    
+        <Route path="/login" exact element={<Login/>}  />  
+        <Route path="/logout" exact element={<LogOut/>}  />    
         <Route path="/signup" exact element={<SignUp/>}  />    
         <Route path="/category/:category" exact element={<Category />}  />    
         <Route path="/addGame" exact element={<AddGame />}  />
