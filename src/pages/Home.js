@@ -21,7 +21,7 @@ class Home extends Component {
   fetch(url)
   .then((response) => response.json())
   .then(games => { 
-    console.log(games); 
+    //console.log(games); 
     this.setState({ games })
     this.state.showButton = true;
   }) 
@@ -35,7 +35,7 @@ class Home extends Component {
                 return res.json()
               })
             .then(games => { 
-                console.log(games); 
+                //console.log(games); 
                 this.setState({ games })
               });
           }
@@ -67,7 +67,9 @@ class Home extends Component {
       <Box style={{ marginLeft: '50px', marginRight: '50px' }}>
         <Row>
         {this.state.games.map((game)=>{
-          if(sessionStorage.getItem("role")==="user"){        
+          if(sessionStorage.getItem("role")==="user"){  
+          var detaillink = "/detailGame/"+game.gamedId;
+      
           return<>
           <Col>
           <Card style={{ width: '15rem'}} >
@@ -76,22 +78,27 @@ class Home extends Component {
             <Card.Title>{game.name}</Card.Title>
             <Card.Text>{game.platform}</Card.Text>
             <Card.Text>{game.developer}</Card.Text>
-            <Card.Text>{game.price}</Card.Text>
+            <Card.Text>$ {game.price}</Card.Text>
+            <Button variant="primary" href={detaillink}>Details</Button>
           </Card.Body>
         </Card><br></br></Col></>
    } 
    else{
-    var link = "/updateGame/"+game.gameId;
+    var updatelink = "/updateGame/"+game.gameId;
+    var detaillink = "/detailGame/"+game.gameId;
     return<>
     <Col>
-    <Card style={{ width: '15rem'}} >
-    <Card.Img variant="top" src={game.photo} />
+    <Card style={{ width: '15rem'}}>
+    <Card.Img variant="top" src={game.photo}/>
     <Card.Body>
       <Card.Title>{game.name}</Card.Title>
       <Card.Text>{game.platform}</Card.Text>
       <Card.Text>{game.developer}</Card.Text>
-      <Card.Text>{game.price}</Card.Text>
-      <Button variant="primary"href={link}>Update</Button>
+      <Card.Text>$ {game.price}</Card.Text>
+      <Button variant="primary" href={updatelink}>Update</Button>
+      <br></br>
+      <Button variant="primary" href={detaillink}>Details</Button>
+
     </Card.Body>
   </Card><br></br></Col></>
    }})}

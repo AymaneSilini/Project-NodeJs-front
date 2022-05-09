@@ -50,12 +50,12 @@ class Login extends Component {
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email</Form.Label>
-        <Form.Control type="email" value={this.state.value} name="mail" onChange={this.handleChange}/>
+        <Form.Control type="email" value={this.state.value} required name="mail" onChange={this.handleChange}/>
       </Form.Group>
     
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" value={this.state.value} name="password" onChange={this.handleChange}/>
+        <Form.Control type="password" value={this.state.value} required name="password" onChange={this.handleChange}/>
       </Form.Group>
     
       <Button variant="primary" type="submit" value="Submit">
