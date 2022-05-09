@@ -29,8 +29,8 @@ class AddGame extends React.Component {
       console.log(result)
       alert('A user was added: ' + JSON.stringify(this.state));
       sessionStorage.setItem("token", result.token);
-      //retrieve and stock the token, then use it for securised routes
-      console.log(sessionStorage.getItem("token"));
+      sessionStorage.setItem("role",result.role);
+      
     })
  
     event.preventDefault();

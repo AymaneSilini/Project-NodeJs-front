@@ -27,7 +27,10 @@ class Login extends Component {
         )
         .then((result) => {
           alert('Welcome ' + result.alias);
+          sessionStorage.setItem("role",result.role);
           sessionStorage.setItem("token", result.token);
+          console.log(sessionStorage.getItem("role"));
+
           //retrieve and stock the token, then use it for securised routes
         })
      
