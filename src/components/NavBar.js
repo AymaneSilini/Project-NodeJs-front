@@ -58,7 +58,7 @@ render(){
           
         </Nav>
         <Form className="d-flex" >
-          <IconButton style={{marginRight: "20px"}} color="primary" aria-label="shopping cart">
+          <IconButton href="/cart" style={{marginRight: "20px"}} color="primary" aria-label="shopping cart">
               <ShoppingCartIcon />
             </IconButton>
             <Button size="small" href="/profile" style={{marginRight: "20px"}}>My Profile</Button>

@@ -13,6 +13,7 @@ import LogOut from './pages/LogOut';
 import SignUp from './pages/SignUp';
 import GetUser from './pages/admin/GetUser';
 import UpdateGame from './pages/admin/UpdateGame';
+import Cart from './pages/Cart';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,7 +25,8 @@ root.render(
         <Route path="/home" exact element={<Home />}  />
         <Route path="/login" exact element={<Login/>}  />  
         <Route path="/logout" exact element={<LogOut/>}  />    
-        <Route path="/signup" exact element={<SignUp/>}  />    
+        <Route path="/signup" exact element={<SignUp/>}  />   
+        <Route path="/cart" exact element={<Cart/>}  />    
         <Route path="/category/:category" exact element={<Category />}  />    
         <Route path="/addGame" exact element={<AddGame />}  />
         <Route path="/addCategory" exact element={<AddCategory />}  /> 

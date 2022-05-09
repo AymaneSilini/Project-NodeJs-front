@@ -7,6 +7,7 @@ class LogOut extends Component {
     logout(){
       sessionStorage.removeItem("role");
       sessionStorage.removeItem("token");
+      sessionStorage.removeItem("userId");
       window.location.href = '/';
     }
 

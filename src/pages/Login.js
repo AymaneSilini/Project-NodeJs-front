@@ -29,6 +29,7 @@ class Login extends Component {
           alert('Welcome ' + result.alias);
           sessionStorage.setItem("role",result.role);
           sessionStorage.setItem("token", result.token);
+          sessionStorage.setItem("userId", result.userId);
           console.log(sessionStorage.getItem("role"));
           window.location.href = '/';
 
