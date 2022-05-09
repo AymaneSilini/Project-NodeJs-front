@@ -27,7 +27,7 @@ class Login extends Component {
         
         )
         .then((result) => {
-          alert('Welcome ' + result.alias);
+          //alert('Welcome ' + result.alias);
           sessionStorage.setItem("role",result.role);
           sessionStorage.setItem("token", result.token);
           sessionStorage.setItem("userId", result.userId);

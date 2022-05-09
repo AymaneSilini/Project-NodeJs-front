@@ -80,7 +80,7 @@ class Home extends Component {
         <Row>
         {this.state.games.map((game)=>{
           if(sessionStorage.getItem("token")===null || sessionStorage.getItem("role")==="user"){  
-          var detaillink = "/detailGame/"+game.gamedId;
+          var detaillink = "/detailGame/"+game.gameId;
       
           return<>
           <Col>
