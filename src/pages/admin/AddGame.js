@@ -36,7 +36,6 @@ class AddGame extends React.Component {
 
   handleSubmit = (event) => {
     console.log(this.state);
-    
     fetch('http://localhost:3001/game/', {
         method: "POST",
         headers: {

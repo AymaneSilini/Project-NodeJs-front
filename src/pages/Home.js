@@ -85,7 +85,7 @@ class Home extends Component {
    } 
    else{
     var updatelink = "/updateGame/"+game.gameId;
-    var detaillink = "/detailGame/"+game.gameId;
+    detaillink = "/detailGame/"+game.gameId;
     return<>
     <Col>
     <Card style={{ width: '15rem'}}>
