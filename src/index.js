@@ -15,6 +15,7 @@ import GetUser from './pages/admin/GetUser';
 import UpdateGame from './pages/admin/UpdateGame';
 import Cart from './pages/Cart';
 import Profile from './pages/Profile';
+import DetailGame from './pages/DetailGame';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -35,7 +36,9 @@ root.render(
         <Route path="/addUser" exact element={<AddUser />}  />
         <Route path="/addPlatform" exact element={<AddPlatform />}  />  
         <Route path="/getUser" exact element={<GetUser />}  />   
-        <Route path="/updateGame/:id" exact element={<UpdateGame />}  />   
+        <Route path="/updateGame/:id" exact element={<UpdateGame />}  />  
+        <Route path="/detailGame/:id" exact element={<DetailGame />}  />   
+ 
 
 
 

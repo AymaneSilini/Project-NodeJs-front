@@ -77,7 +77,7 @@ class UpdateGame extends React.Component {
 <AdminBar/>
 <br></br>
         <Container maxWidth="sm" padding="normal">
-      <h1>Form to add a game</h1>
+      <h1>Update the game : {this.state.game.name}</h1>
       <br></br>
         <Form onSubmit={this.handleSubmit}>
   <Form.Group className="mb-3">

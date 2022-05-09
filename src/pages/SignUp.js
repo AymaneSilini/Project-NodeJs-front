@@ -27,9 +27,14 @@ class AddGame extends React.Component {
     .then((response) => response.json())
     .then((result) => {
       console.log(result)
-      alert('A user was added: ' + JSON.stringify(this.state));
-      sessionStorage.setItem("token", result.token);
-      sessionStorage.setItem("role",result.role);
+      if (result.role === undefined){
+        alert(result)
+      }
+      else {
+        alert('User' + this.state.alias + 'has been successfully created');
+        sessionStorage.setItem("token", result.token);
+        sessionStorage.setItem("role",result.role);
+      }
       
     })
  
@@ -44,7 +49,7 @@ class AddGame extends React.Component {
         <Container maxWidth="sm" padding="normal">
         <Form onSubmit={this.handleSubmit}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label>User Name</Form.Label>
+    <Form.Label>Alias</Form.Label>
     <Form.Control type="text" value={this.state.value} name="alias" onChange={this.handleChange}/>
   </Form.Group>
 
