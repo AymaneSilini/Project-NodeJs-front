@@ -12,11 +12,10 @@ class NavBar extends Component {
     
    }
    componentDidMount() {
-     var loged='';
-     loged = localStorage.getItem('loged');
-     if(loged===null||loged===undefined||loged===''){
-       loged=false
-     }
+     var token;
+     var role;
+     token = sessionStorage.getItem('token');
+     role = sessionStorage.getItem('role');
     fetch('http://localhost:3001/category/')
             .then(res => {
                 return res.json()
@@ -57,23 +56,35 @@ render(){
           </>})}
           
         </NavDropdown>
-        <NavDropdown title="Admin" id="navbarScrollingDropdown">
+        {this.role !=='admin' ?
+        <>
+          <NavDropdown title="Admin" id="navbarScrollingDropdown">
           <NavDropdown.Item href="/addGame">Add Game</NavDropdown.Item>
           <NavDropdown.Item href="/addCategory">Add Category</NavDropdown.Item>
           <NavDropdown.Item href="/addUser">Add User</NavDropdown.Item>
           <NavDropdown.Item href="/addPlatform">Add Game</NavDropdown.Item>
           <NavDropdown.Item href="/getUser">Get User</NavDropdown.Item>
-
         </NavDropdown>
+        </>:<></>
+        }
+        
       </Nav>
       <Form className="d-flex" >
+        {this.token !=='null' ?
+        <>
           <Button variant="success" href="/login" style={{marginRight: "20px"}}>Login</Button>
           <Button variant="primary" href="/signup">SignUp</Button>
-          <IconButton style={{marginRight: "20px"}} color="primary" aria-label="shopping cart">
+        </>
+        :
+        <>
+        <IconButton style={{marginRight: "20px"}} color="primary" aria-label="shopping cart">
             <ShoppingCartIcon />
           </IconButton>
           <Button size="small" href="/profile" style={{marginRight: "20px"}}>My Profile</Button>
           <Button size="small" href="/logout">LogOut</Button>
+        </>
+        }
+          
       </Form>
       
     </Navbar.Collapse>

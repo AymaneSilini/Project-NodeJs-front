@@ -4,33 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Grid,Button } from '@mui/material';
 
 class LogOut extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {mail:'', password: ''};
-      }
-    
-      handleChange = (event) => {
-        this.setState({[event.target.name]: event.target.value});
-      }
-     
-      handleSubmit = (event) => {
-       
-        fetch('http://localhost:3001/user/logout',{
-          method: "POST",
-        headers: {
-            'Content-type': 'application/json'
-        },
-        body: JSON.stringify(this.state)
-        })
-        .then((response) => response.json(),
-        )
-        .then((result) => {
-          alert('Welcome ' + result.alias);
-          sessionStorage.setItem("token", result.token);
-          //retrieve and stock the token, then use it for securised routes
-        })
-     
-        event.preventDefault();
+    logout(){
+      sessionStorage.clear();
+      window.location.href = '/';
+    }
+
+    cancel(){
+      window.location.href = '/';
     }
      
       render() {
@@ -43,10 +23,10 @@ class LogOut extends Component {
       <br></br>
       <Grid container spacing={2}>
         <Grid item xs={4}>
-          <Button variant="contained" color="primary">Yes!</Button>
+          <Button variant="contained" color="primary" onClick={this.logout}>Yes!</Button>
         </Grid>
         <Grid item xs={4}>
-          <Button variant="contained" color="error">No, thanks!</Button>
+          <Button variant="contained" color="error" onClick={this.cancel}>No, thanks!</Button>
         </Grid>
       </Grid>
     </Container>
