@@ -24,14 +24,17 @@ class Login extends Component {
         body: JSON.stringify(this.state)
         })
         .then((response) => response.json(),
+        
         )
         .then((result) => {
-          alert('Welcome ' + result.alias);
-          sessionStorage.setItem("role",result.role);
-          sessionStorage.setItem("token", result.token);
-          console.log(sessionStorage.getItem("role"));
-
-          //retrieve and stock the token, then use it for securised routes
+          if (result === "Invalid Credentials"){
+            alert("Invalid credentials, try again")
+          }
+          else{
+            sessionStorage.setItem("role",result.role);
+            sessionStorage.setItem("token", result.token);
+            console.log(sessionStorage.getItem("role"));
+          }
         })
      
         event.preventDefault();
