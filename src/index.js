@@ -11,6 +11,7 @@ import Category from './pages/Category';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import GetUser from './pages/admin/GetUser';
+import UpdateGame from './pages/UpdateGame';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -27,6 +28,8 @@ root.render(
         <Route path="/addUser" exact element={<AddUser />}  />
         <Route path="/addPlatform" exact element={<AddPlatform />}  />  
         <Route path="/getUser" exact element={<GetUser />}  />   
+        <Route path="/updateGame/:id" exact element={<UpdateGame />}  />   
+
 
 
         

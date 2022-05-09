@@ -29,7 +29,6 @@ class Home extends Component {
       <Box style={{ marginLeft: '50px', marginRight: '50px' }}>
         <Row>
         {this.state.games.map((game)=>{
-          var link = "/updateGame/"+game.gameId;
           if(sessionStorage.getItem("role")==="user"){        
           return<>
           <Col>
@@ -44,6 +43,7 @@ class Home extends Component {
         </Card><br></br></Col></>
    } 
    else{
+    var link = "/updateGame/"+game.gameId;
     return<>
     <Col>
     <Card style={{ width: '15rem'}} >
