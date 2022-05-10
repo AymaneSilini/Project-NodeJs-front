@@ -1,7 +1,8 @@
 import React from 'react'
 import { Form, Button } from 'react-bootstrap';
 import { Container, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
-
+import Moment from 'react-moment';
+import moment from "moment";
 class CommentBox extends React.Component {
     constructor() {
       super();
@@ -16,7 +17,9 @@ class CommentBox extends React.Component {
     }
 
     componentDidMount() {
-        var url = 'http://localhost:3001/comment';
+        var url = window.location.href;
+        var urlDivided = url.split('/');
+        var url = 'http://localhost:3001/comment/game/'+urlDivided[urlDivided.length-1];
         fetch(url)
                 .then(res => {
                     return res.json()
@@ -68,18 +71,31 @@ class CommentBox extends React.Component {
     }
     
     _getComments() {    
+      if (this.state.comments != ''){
       return this.state.comments.map((comment) => { 
         return (
             <div className="comment">
             <p className="comment-header">{comment.pseudo}</p>
             <p className="comment-content">- {comment.content}</p>
+            <Moment className="datetime" aria-hidden={true}>
+                {comment.date}
+            </Moment>
           </div>
+          
         ); 
       });
     }
+    else {
+      return (
+        <div className="comment">
+        <p className="comment-header">Be the first to comment</p>
+      </div>
+    ); 
+    }
+    }
     
     _getCommentsTitle(commentCount) {
-      if (commentCount === 0) {
+      if (commentCount === undefined) {
         return 'No comments yet';
       } else if (commentCount === 1) {
         return "1 comment";
@@ -91,7 +107,7 @@ class CommentBox extends React.Component {
   
   class CommentForm extends React.Component { constructor(props) {
         super(props);
-        this.state = {game:'', content: '', pseudo:''};
+        this.state = {game:'', content: '', pseudo:'', date:''};
       }
 
     handleChange = (event) => {
@@ -103,7 +119,7 @@ class CommentBox extends React.Component {
         var url = window.location.href;
         var urlDivided = url.split('/');
         this.state.game = urlDivided[urlDivided.length-1];
-        console.log(this.state.game);
+        this.state.date = moment().format("YYYY-MM-DD hh:mm:ss");
         fetch('http://localhost:3001/comment', {
           method: "POST",
           headers: {
