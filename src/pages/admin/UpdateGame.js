@@ -102,7 +102,7 @@ class UpdateGame extends React.Component {
   </Form.Group>
   <Form.Group className="mb-3">
     <Form.Label>Price</Form.Label>
-    <Form.Control type="number" defaultValue={this.state.game.price} name="price" onChange={this.handleChange}/>
+    <Form.Control type="text" defaultValue={this.state.game.price} name="price" onChange={this.handleChange}/>
   </Form.Group>
 
   <Form.Group className="mb-3">

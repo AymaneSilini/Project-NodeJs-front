@@ -51,6 +51,7 @@ class Home extends Component {
         cart.push(event.target.name);
         localStorage.setItem("cart", JSON.stringify(cart));
       }
+      alert('Game added to your cart')
     }
 
   render(){
@@ -91,8 +92,8 @@ class Home extends Component {
             <Card.Text>{game.synopsis}</Card.Text>
             <Card.Text>{game.developer}</Card.Text>
             <Card.Text>$ {game.price}</Card.Text>
-            <Button variant="primary" name={game.gameId+','+game.name+','+game.developer+','+game.price} onClick={this.addToCart}>Add to cart</Button>
-            <Button variant="primary" href={detaillink}>Details</Button>
+            <Button style={{ margin: '15px'}} variant="primary" name={game.gameId+','+game.name+','+game.developer+','+game.price} onClick={this.addToCart}>Add to cart</Button>
+            <Button style={{ margin: '15px'}} variant="primary" href={detaillink}>Details</Button>
           </Card.Body>
         </Card><br></br></Col></>
    } 
@@ -108,9 +109,8 @@ class Home extends Component {
       <Card.Text>{game.synopsis}</Card.Text>
       <Card.Text>{game.developer}</Card.Text>
       <Card.Text>$ {game.price}</Card.Text>
-      <Button variant="primary" href={updatelink}>Update</Button>
-      <br></br>
-      <Button variant="primary" href={detaillink}>Details</Button>
+      <Button variant="primary" href={updatelink} style={{ margin: '15px'}}>Update</Button>
+      <Button variant="primary" href={detaillink} style={{ margin: '15px'}}>Details</Button>
 
     </Card.Body>
   </Card><br></br></Col></>
