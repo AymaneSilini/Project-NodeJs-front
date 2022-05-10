@@ -16,7 +16,9 @@ class CommentBox extends React.Component {
     }
 
     componentDidMount() {
-        var url = 'http://localhost:3001/comment';
+        var url = window.location.href;
+        var urlDivided = url.split('/');
+        var url = 'http://localhost:3001/comment/game/'+urlDivided[urlDivided.length-1];
         fetch(url)
                 .then(res => {
                     return res.json()
@@ -68,6 +70,7 @@ class CommentBox extends React.Component {
     }
     
     _getComments() {    
+      if (this.state.comments != ''){
       return this.state.comments.map((comment) => { 
         return (
             <div className="comment">
@@ -77,9 +80,17 @@ class CommentBox extends React.Component {
         ); 
       });
     }
+    else {
+      return (
+        <div className="comment">
+        <p className="comment-header">Be the first to comment</p>
+      </div>
+    ); 
+    }
+    }
     
     _getCommentsTitle(commentCount) {
-      if (commentCount === 0) {
+      if (commentCount === undefined) {
         return 'No comments yet';
       } else if (commentCount === 1) {
         return "1 comment";
