@@ -25,11 +25,30 @@ class Login extends Component {
         
         )
         .then((result) => {
+<<<<<<< HEAD
             sessionStorage.setItem("token", result.access_token);
             console.log(sessionStorage.getItem("token"));
             window.location.href = '/home';
 
           
+=======
+          //alert('Welcome ' + result.alias);
+          sessionStorage.setItem("role",result.role);
+          sessionStorage.setItem("token", result.token);
+          sessionStorage.setItem("userId", result.userId);
+          console.log(sessionStorage.getItem("role"));
+          window.location.href = '/';
+
+          //retrieve and stock the token, then use it for securised routes
+          if (result === "Invalid Credentials"){
+            alert("Invalid credentials, try again")
+          }
+          else{
+            sessionStorage.setItem("role",result.role);
+            sessionStorage.setItem("token", result.token);
+            console.log(sessionStorage.getItem("role"));
+          }
+>>>>>>> origin/edgar
         })
      
         event.preventDefault();
